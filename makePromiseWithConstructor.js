@@ -7,7 +7,19 @@
  */
 
 function makePromiseWithConstructor(itShouldResolve){
-    // put your code here
+  return new Promise( (resolve, reject)=> {
+if (itShouldResolve) {
+resolve ();
+} else {
+reject ();
+}
+});
 }
 
-// Add your checks here
+makePromiseWithConstructor(true)
+.then (( ) => console.log( 'Promise resolved' ))
+.catch(( ) => console.log ('Promise rejected' ));
+
+makePromiseWithConstructor(false)
+.then (( ) => console.log ('Promise resolved'))
+. catch(() =>console. log ('Promise rejected' ));
