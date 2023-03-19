@@ -25,3 +25,35 @@ function addStringPromise (previous, current) {
 }
 
 // put your code here
+
+addStringPromise("2","C")
+.then((data) =>{
+  addStringPromise(data,"D")
+  .then((last) =>{
+    console.log(last);
+  })
+})
+.catch((err) =>{
+  console.log(err)
+});                           ///2
+
+
+addStringCallback("1","C",function(nu,res){
+  addStringCallback(res,"D",(nul,res1)=>{
+    console.log(res1);
+  })                             //1
+})
+
+async function Prin() {
+  try{
+  let prob = '';
+  prob = await addStringPromise('D',prob);
+  prob = await addStringPromise('C',prob);
+  prob = await addStringPromise('3',prob);
+  console.log(prob);
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+Prin();                 ///3
