@@ -6,6 +6,13 @@
  */
 function makePromiseRejectWithBoo(){
     // put your code here
-}
-
-console.log(makePromiseRejectWithBoo());
+try {
+throw new Error ( 'Boo!');
+} catch (error) {
+return Promise.reject (error .message);
+ }
+  }
+makePromiseRejectWithBoo()
+.catch(error =>{
+console.error(error==="Boo!");
+});
